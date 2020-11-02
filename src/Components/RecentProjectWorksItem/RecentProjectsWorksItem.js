@@ -73,8 +73,8 @@ const RecentProjectsWorksItem = ({data}) => {
                 </AccordionDetails>
             </Accordion>
             <Card.Body>
-            <Card.Link href={githubLink} target="_blank"><Image width={20} src="http://pngimg.com/uploads/github/github_PNG40.png" fluid/>GitHub</Card.Link>
-            <Card.Link href={liveLink} target="_blank"><Image width={20} src="http://ayodasl.org/uploads/article/photo/IMG_5AF2C3-745CB8-6E42C0-03BAFD-E19191-E608C3.png" fluid />Live Site</Card.Link>
+            <Card.Link className="text-decoration-none text-dark" href={githubLink} target="_blank"><Image width={20} src="http://pngimg.com/uploads/github/github_PNG40.png" fluid/>GitHub</Card.Link>
+            <Card.Link className="text-decoration-none text-dark" href={liveLink} target="_blank"><Image width={20} src="http://ayodasl.org/uploads/article/photo/IMG_5AF2C3-745CB8-6E42C0-03BAFD-E19191-E608C3.png" fluid />Live Site</Card.Link>
             </Card.Body>
         </Card>
     );
