@@ -35,3 +35,23 @@ body{
     opacity: 0;
   }
 }
+
+.acrylic-bg{
+  background-color: rgba(10, 10,10, 0.1);
+  backdrop-filter: blur(3px);
+  transition: transfrom ease-in-out 3s;
+}
+
+.active{
+  background-color: #0bc2c2;
+  transform: scale(1.01);
+}
+
+.acrylic-bg:hover{
+  background-color:#0bc2c2;
+  transform: scale(1.01);
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
