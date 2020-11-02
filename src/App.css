@@ -55,3 +55,7 @@ body{
 .cursor-pointer{
   cursor: pointer;
 }
+
+.card{
+  min-width: 350px !important;
+}

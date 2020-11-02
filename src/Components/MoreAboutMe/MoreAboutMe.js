@@ -25,11 +25,11 @@ const MoreAboutMe = () => {
                             <li className="mt-3 mb-3">  
                                 <h5><FontAwesomeIcon icon={faMailBulk} /><span className="pl-2">pappuhassan440@gmail.com</span></h5>
                             </li>
-                            <div className="d-flex justify-content-between">
+                            <div className="d-flex justify-content-between align-items-center">
                                 <li className="mt-3 mb-3">  
                                     <h5><FontAwesomeIcon icon={faPhoneSquareAlt} /><span className="pl-2">+8801 682992668</span></h5>
                                 </li>
-                                <Button variant="danger">Resume</Button>
+                                <a href="https://1drv.ms/b/s!AnnGIh2S0fKbmKM5W4od6e2dQoX_-g" className="btn btn-danger" target="_blank" rel="noopener noreferrer">Resume</a>
                             </div>
                         </ul>
                     </div>
