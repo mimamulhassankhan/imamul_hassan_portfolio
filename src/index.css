@@ -1,13 +1,978 @@
+@import "tailwindcss";
+
+@custom-variant night-theme (&:where(.night-theme, .night-theme *));
+@custom-variant day-theme (&:where(.day-theme, .day-theme *));
+@custom-variant profile-theme (&:where(.profile-theme, .profile-theme *));
+
+@theme {
+  /* Base colors */
+  --color-primary: #667eea;
+  --color-secondary: #764ba2;
+  --color-tertiary: #f093fb;
+  --color-quaternary: #ec4899;
+  --color-quinary: #06b6d4;
+  --color-senary: #3b82f6;
+
+  /* Theme-specific colors - Improved day theme contrast */
+  --color-day-bg: #ffffff;
+  --color-day-bg-secondary: #f1f5f9;
+  --color-day-bg-tertiary: #e2e8f0;
+  --color-day-text: #0f172a;
+  --color-day-text-secondary: #334155;
+  --color-day-text-muted: #64748b;
+
+  --color-night-bg: #0f0f23;
+  --color-night-bg-secondary: #1a1a2e;
+  --color-night-bg-tertiary: #16213e;
+  --color-night-text: #ffffff;
+  --color-night-text-secondary: rgba(255, 255, 255, 0.8);
+  --color-night-text-muted: rgba(255, 255, 255, 0.6);
+
+  --color-profile-bg: #0f172a;
+  --color-profile-bg-secondary: #1e293b;
+  --color-profile-bg-tertiary: #334155;
+  --color-profile-bg-quaternary: #475569;
+  --color-profile-text: #ffffff;
+  --color-profile-text-secondary: rgba(255, 255, 255, 0.9);
+  --color-profile-text-muted: rgba(255, 255, 255, 0.7);
+}
+
+@view-transition {
+  navigation: auto;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Default theme (night) */
+body {
+  color: #ffffff;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  transition: all 0.3s ease;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* View Transition API Styles */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Essential Glassmorphism Effect using Tailwind CSS v4 approach */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.day-theme .glass {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(51, 65, 85, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.profile-theme .glass {
+  background: rgba(20, 184, 166, 0.1);
+  border: 1px solid rgba(20, 184, 166, 0.3);
+  box-shadow: 0 8px 32px rgba(20, 184, 166, 0.15);
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass:hover {
+  background: rgba(102, 126, 234, 0.15);
+  border-color: var(--color-primary);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 25px 50px var(--color-primary);
+}
+
+.day-theme .glass:hover {
+  background: rgba(99, 102, 241, 0.15);
+}
+
+.glass:hover::before {
+  left: 100%;
+}
+
+/* Gradient Text Effect */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+
+
+@keyframes gradient-shift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Theme-specific shimmer effects */
+@keyframes shimmer-night {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes shimmer-day {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes shimmer-profile {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Navigation Active State */
+.nav-active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: rgba(102, 126, 234, 0.5);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+  animation: activePulse 2s ease-in-out infinite;
+  transition: color 0.3s ease;
+}
+
+@keyframes activePulse {
+
+  0%,
+  100% {
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.6);
+  }
+}
+
+/* Day Theme Navigation Active State */
+.day-theme .nav-active {
+  background: linear-gradient(135deg, #DA4453 0%, #89216B 100%);
+  border-color: rgba(218, 68, 83, 0.5);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(218, 68, 83, 0.4);
+  animation: dayActivePulse 2s ease-in-out infinite;
+  color: white;
+}
+
+@keyframes dayActivePulse {
+
+  0%,
+  100% {
+    box-shadow: 0 15px 30px rgba(218, 68, 83, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 15px 30px rgba(218, 68, 83, 0.6);
+  }
+}
+
+
+
+/* Modern Scrollbar using Tailwind CSS v4 approach */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+}
+
+.day-theme ::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-quaternary) 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--color-quaternary) 0%, var(--color-primary) 100%);
+}
+
+/* Theme-aware styles using Tailwind CSS v4 approach */
+.night-theme {
+  --color-bg: var(--color-night-bg);
+  --color-bg-secondary: var(--color-night-bg-secondary);
+  --color-bg-tertiary: var(--color-night-bg-tertiary);
+  --color-text: var(--color-night-text);
+  --color-text-secondary: var(--color-night-text-secondary);
+  --color-text-muted: var(--color-night-text-muted);
+
+  background: linear-gradient(135deg, var(--color-night-bg) 0%, var(--color-night-bg-secondary) 50%, var(--color-night-bg-tertiary) 100%);
+  color: var(--color-night-text);
+}
+
+.night-theme body {
+  background: linear-gradient(135deg, var(--color-night-bg) 0%, var(--color-night-bg-secondary) 50%, var(--color-night-bg-tertiary) 100%);
+  color: var(--color-night-text);
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.day-theme {
+  --color-bg: var(--color-day-bg);
+  --color-bg-secondary: var(--color-day-bg-secondary);
+  --color-bg-tertiary: var(--color-day-bg-tertiary);
+  --color-text: var(--color-day-text);
+  --color-text-secondary: var(--color-day-text-secondary);
+  --color-text-muted: var(--color-day-text-muted);
+
+  background: linear-gradient(135deg, var(--color-day-bg) 0%, var(--color-day-bg-secondary) 50%, var(--color-day-bg-tertiary) 100%);
+  color: var(--color-day-text);
+}
+
+.day-theme body {
+  background-image: linear-gradient(135deg, var(--color-day-bg) 0%, var(--color-day-bg-secondary) 50%, var(--color-day-bg-tertiary) 100%);
+  color: var(--color-day-text);
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Day Theme Fluorescent Blue Ambient Light Effects */
+.day-theme::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 15% 15%, var(--ambient-light-1) 0%, transparent 60%),
+    radial-gradient(circle at 85% 85%, var(--ambient-light-2) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, var(--ambient-light-3) 0%, transparent 80%);
+  pointer-events: none;
+  z-index: 1;
+  animation: day-ambient-float 18s ease-in-out infinite;
+}
+
+.day-theme::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 5% 95%, var(--ambient-light-2) 0%, transparent 50%),
+    radial-gradient(circle at 95% 5%, var(--ambient-light-1) 0%, transparent 50%),
+    radial-gradient(circle at 25% 75%, var(--ambient-light-3) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  animation: day-ambient-float 22s ease-in-out infinite reverse;
+}
+
+@keyframes day-ambient-float {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    opacity: 0.6;
+    transform: translate(1%, 0.5%) scale(1.01);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translate(-0.5%, 1%) scale(0.99);
+  }
+
+  75% {
+    opacity: 0.7;
+    transform: translate(0.5%, -0.5%) scale(1.005);
+  }
+}
+
+/* Day Theme Floating Light Orbs */
+.day-theme .day-ambient-orb {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  animation: day-orb-float 12s ease-in-out infinite;
+}
+
+.day-theme .day-ambient-orb:nth-child(1) {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, var(--ambient-light-1) 0%, transparent 75%);
+  top: 5%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.day-theme .day-ambient-orb:nth-child(2) {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, var(--ambient-light-2) 0%, transparent 75%);
+  top: 70%;
+  right: 10%;
+  animation-delay: 4s;
+}
+
+.day-theme .day-ambient-orb:nth-child(3) {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, var(--ambient-light-3) 0%, transparent 75%);
+  bottom: 15%;
+  left: 15%;
+  animation-delay: 8s;
+}
+
+@keyframes day-orb-float {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+
+  33% {
+    transform: translate(15px, -10px) scale(1.05);
+    opacity: 0.5;
+  }
+
+  66% {
+    transform: translate(-8px, 20px) scale(0.95);
+    opacity: 0.2;
+  }
+}
+
+/* Ken Burns Effect Animation */
+@keyframes ken-burns {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-ken-burns {
+  animation: ken-burns 8s ease-out forwards;
+}
+
+/* Website Scrolling Animation */
+@keyframes website-scroll {
+  0% {
+    object-position: center 0%;
+  }
+
+  25% {
+    object-position: center 25%;
+  }
+
+  50% {
+    object-position: center 50%;
+  }
+
+  75% {
+    object-position: center 75%;
+  }
+
+  100% {
+    object-position: center 100%;
+  }
+}
+
+.animate-website-scroll {
+  animation: website-scroll 15s ease-in-out infinite;
+  animation-delay: 2s;
+  /* Start after 2 seconds to let image load */
+}
+
+/* Pause animation on hover for better user experience */
+.group:hover .animate-website-scroll {
+  animation-play-state: paused;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .animate-website-scroll {
+    animation: none;
+  }
+}
+
+/* Custom Scrollbar for Project Cards */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(168, 85, 247, 0.3) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.3);
+  border-radius: 2px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.5);
+}
+
+.scrollbar-thumb-purple-500\/30 {
+  scrollbar-color: rgba(168, 85, 247, 0.3) transparent;
+}
+
+.scrollbar-track-transparent {
+  scrollbar-color: rgba(168, 85, 247, 0.3) transparent;
+}
+
+/* Custom Animation for Projects Gallery */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Day Theme Enhanced Glass Effects with Fluorescent Blue Ambient Light */
+.day-theme .glass {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(51, 65, 85, 0.3);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 0 15px rgba(56, 189, 248, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+}
+
+.day-theme .glass:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.15),
+    0 0 25px rgba(56, 189, 248, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  transform: translateY(-3px) scale(1.01);
+}
+
+/* Day Theme Sunset Text Glow */
+.day-theme .gradient-text {
+  background: linear-gradient(135deg, #DA4453 0%, #89216B 50%, #C13A47 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 25px rgba(218, 68, 83, 0.2);
+  animation: day-gradient-shift 3s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes day-gradient-shift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.profile-theme {
+  --color-bg: var(--color-profile-bg);
+  --color-bg-secondary: var(--color-profile-bg-secondary);
+  --color-bg-tertiary: var(--color-profile-bg-tertiary);
+  --color-bg-quaternary: var(--color-profile-bg-quaternary);
+  --color-text: var(--color-profile-text);
+  --color-text-secondary: var(--color-profile-text-secondary);
+  --color-text-muted: var(--color-profile-text-muted);
+
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #14b8a6 75%, #0d9488 100%);
+  color: var(--color-profile-text);
+}
+
+.profile-theme body {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #14b8a6 75%, #0d9488 100%);
+  color: var(--color-profile-text);
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Profile Theme Ambient Light Effects */
+.profile-theme::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 20%, var(--ambient-light-1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, var(--ambient-light-2) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, var(--ambient-light-3) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  animation: ambient-float 20s ease-in-out infinite;
+}
+
+.profile-theme::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 10% 90%, var(--ambient-light-2) 0%, transparent 40%),
+    radial-gradient(circle at 90% 10%, var(--ambient-light-1) 0%, transparent 40%),
+    radial-gradient(circle at 30% 70%, var(--ambient-light-3) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+  animation: ambient-float 25s ease-in-out infinite reverse;
+}
+
+@keyframes ambient-float {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    opacity: 0.8;
+    transform: translate(2%, 1%) scale(1.02);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: translate(-1%, 2%) scale(0.98);
+  }
+
+  75% {
+    opacity: 0.9;
+    transform: translate(1%, -1%) scale(1.01);
+  }
+}
+
+/* Profile Theme Floating Light Orbs */
+.profile-theme .ambient-orb {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  animation: orb-float 15s ease-in-out infinite;
+}
+
+.profile-theme .ambient-orb:nth-child(1) {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, var(--ambient-light-1) 0%, transparent 70%);
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.profile-theme .ambient-orb:nth-child(2) {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--ambient-light-2) 0%, transparent 70%);
+  top: 60%;
+  right: 15%;
+  animation-delay: 5s;
+}
+
+.profile-theme .ambient-orb:nth-child(3) {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, var(--ambient-light-3) 0%, transparent 70%);
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 10s;
+}
+
+@keyframes orb-float {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+
+  33% {
+    transform: translate(20px, -15px) scale(1.1);
+    opacity: 0.6;
+  }
+
+  66% {
+    transform: translate(-10px, 25px) scale(0.9);
+    opacity: 0.3;
+  }
+}
+
+/* Profile Theme Enhanced Glass Effects with Ambient Light */
+.profile-theme .glass {
+  background: rgba(20, 184, 166, 0.1);
+  border: 1px solid rgba(20, 184, 166, 0.3);
+  box-shadow:
+    0 8px 32px rgba(20, 184, 166, 0.15),
+    0 0 20px rgba(20, 184, 166, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+.profile-theme .glass:hover {
+  background: rgba(20, 184, 166, 0.2);
+  border-color: rgba(20, 184, 166, 0.5);
+  box-shadow:
+    0 15px 40px rgba(20, 184, 166, 0.25),
+    0 0 30px rgba(20, 184, 166, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Profile Theme Ambient Text Glow */
+.profile-theme .gradient-text {
+  background: linear-gradient(135deg, #14b8a6 0%, #0d9488 50%, #0891b2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(20, 184, 166, 0.3);
+  animation: profile-gradient-shift 4s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes profile-gradient-shift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Profile theme CSS variables - Turquoise Theme */
+.profile-theme {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-glass: rgba(20, 184, 166, 0.1);
+  --bg-glass-hover: rgba(20, 184, 166, 0.2);
+  --bg-card: rgba(20, 184, 166, 0.05);
+  --bg-card-hover: rgba(20, 184, 166, 0.1);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.9);
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --text-inverse: #0f172a;
+  --accent-turquoise: #14b8a6;
+  --accent-teal: #0d9488;
+  --accent-cyan: #0891b2;
+  --accent-blue: #0ea5e9;
+  --accent-indigo: #06b6d4;
+  --border-primary: rgba(20, 184, 166, 0.4);
+  --border-secondary: rgba(20, 184, 166, 0.2);
+  --border-card: rgba(20, 184, 166, 0.15);
+  --shadow-color: rgba(20, 184, 166, 0.2);
+  --shadow-card: rgba(20, 184, 166, 0.1);
+  --shadow-hover: rgba(20, 184, 166, 0.3);
+  --glow-turquoise: rgba(20, 184, 166, 0.6);
+  --glow-teal: rgba(13, 148, 136, 0.6);
+  --glow-cyan: rgba(8, 145, 178, 0.6);
+  --ambient-light-1: rgba(20, 184, 166, 0.08);
+  --ambient-light-2: rgba(13, 148, 136, 0.06);
+  --ambient-light-3: rgba(8, 145, 178, 0.04);
+}
+
+/* Night theme CSS variables */
+.night-theme {
+  --bg-primary: #0f0f23;
+  --bg-secondary: #1a1a2e;
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --bg-glass-hover: rgba(102, 126, 234, 0.15);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --accent-purple: #667eea;
+  --accent-pink: #ec4899;
+  --accent-cyan: #06b6d4;
+  --border-primary: rgba(102, 126, 234, 0.3);
+  --border-secondary: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --glow-purple: rgba(102, 126, 234, 0.5);
+  --glow-pink: rgba(236, 72, 153, 0.5);
+}
+
+/* Day theme CSS variables - Improved contrast */
+.day-theme {
+  /* Background colors - Better contrast */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f1f5f9;
+  --bg-tertiary: #e2e8f0;
+  --bg-glass: rgba(255, 255, 255, 0.95);
+  --bg-glass-hover: rgba(102, 126, 234, 0.15);
+  --bg-card: rgba(255, 255, 255, 0.98);
+  --bg-card-hover: rgba(255, 255, 255, 1);
+
+  /* Text colors - Darker for better contrast */
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+
+  /* Accent colors - Enhanced for day theme */
+  --accent-purple: #6366f1;
+  --accent-pink: #ec4899;
+  --accent-cyan: #0891b2;
+  --accent-blue: #2563eb;
+  --accent-indigo: #4f46e5;
+
+  /* Border colors - More visible */
+  --border-primary: rgba(99, 102, 241, 0.4);
+  --border-secondary: rgba(51, 65, 85, 0.3);
+  --border-card: rgba(51, 65, 85, 0.15);
+
+  /* Shadow colors - Enhanced for day theme */
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --shadow-card: rgba(0, 0, 0, 0.08);
+  --shadow-hover: rgba(0, 0, 0, 0.25);
+
+  /* Glow colors - More vibrant for day theme */
+  --glow-purple: rgba(99, 102, 241, 0.6);
+  --glow-pink: rgba(236, 72, 153, 0.6);
+  --glow-cyan: rgba(8, 145, 178, 0.6);
+
+  /* Fluorescent Blue Ambient Light Variables */
+  --ambient-light-1: rgba(56, 189, 248, 0.15);
+  --ambient-light-2: rgba(59, 130, 246, 0.12);
+  --ambient-light-3: rgba(99, 102, 241, 0.10);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .glass {
+    backdrop-filter: blur(10px);
+  }
+
+  .gradient-text {
+    font-size: 1.5rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Theme-aware utility classes using Tailwind CSS v4 approach */
+.text-theme-primary {
+  color: var(--color-text);
+}
+
+.text-theme-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-theme-muted {
+  color: var(--color-text-muted);
+}
+
+.bg-theme-primary {
+  background-color: var(--color-bg);
+}
+
+.bg-theme-secondary {
+  background-color: var(--color-bg-secondary);
+}
+
+.bg-theme-tertiary {
+  background-color: var(--color-bg-tertiary);
+}
+
+.bg-theme-glass {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.day-theme .bg-theme-glass {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.profile-theme .bg-theme-glass {
+  background: rgba(20, 184, 166, 0.1);
+}
+
+.bg-theme-glassHover {
+  background: rgba(102, 126, 234, 0.15);
+}
+
+.day-theme .bg-theme-glassHover {
+  background: rgba(99, 102, 241, 0.15);
+}
+
+.border-theme-primary {
+  border-color: var(--color-primary);
+}
+
+.border-theme-secondary {
+  border-color: var(--color-text-muted);
+}
+
+/* Theme-specific shimmer utility classes */
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  animation: shimmer-night 2s linear infinite;
+}
+
+.day-theme .shimmer-effect::before {
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.08), transparent);
+  animation: shimmer-day 2s linear infinite;
+}
+
+.profile-theme .shimmer-effect::before {
+  background: linear-gradient(90deg, transparent, rgba(20, 184, 166, 0.12), transparent);
+  animation: shimmer-profile 2s linear infinite;
+}
+
+/* Enhanced shimmer for day theme */
+.day-theme .shimmer-effect::before {
+  opacity: 0.6;
+}
+
+*:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.day-theme ::selection {
+  color: #ffffff;
+}
+
+/* Achievement Slider Custom Styles */
+.text-shadow-lg {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Custom Swiper Styles */
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide default Swiper navigation and pagination */
+.swiper-button-next,
+.swiper-button-prev,
+.swiper-pagination {
+  display: none !important;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
 }
