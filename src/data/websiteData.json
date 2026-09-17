@@ -1,0 +1,686 @@
+{
+    "introduction": {
+        "welcome": {
+            "title": "Welcome to My Portfolio",
+            "subtitle": "Innovative and driven Software Engineer with over 6 years of comprehensive full-stack experience, proficient in JavaScript, TypeScript, React, Next.js, Node.js, Express.js, NestJS, and .NET. I am skilled in designing secure, scalable systems with robust database management (MongoDB, PostgreSQL). Adept in API integration, cloud infrastructure management, CI/CD implementation, and familiarity with security compliance standards (GDPR, OWASP). Passionate about leveraging technology to deliver high-quality products for global clients, including Fortune 500 companies."
+        },
+        "buttons": {
+            "viewProjects": {
+                "text": "View Projects",
+                "icon": "FaEye"
+            },
+            "contactMe": {
+                "text": "Contact Me",
+                "icon": "FaEnvelope"
+            }
+        },
+        "stats": [
+            {
+                "value": "6+",
+                "label": "Years Experience",
+                "icon": "FaClock"
+            },
+            {
+                "value": "25+",
+                "label": "Projects Completed",
+                "icon": "FaProjectDiagram"
+            },
+            {
+                "value": "100%",
+                "label": "Client Satisfaction",
+                "icon": "FaHeart"
+            }
+        ]
+    },
+    "navigation": {
+        "sections": [
+            {
+                "id": "home",
+                "label": "Home",
+                "icon": "FaHome"
+            },
+            {
+                "id": "about",
+                "label": "About",
+                "icon": "FaUser"
+            },
+            {
+                "id": "projects",
+                "label": "Projects",
+                "icon": "FaProjectDiagram"
+            },
+            {
+                "id": "experience",
+                "label": "Experience",
+                "icon": "FaBriefcase"
+            },
+            {
+                "id": "blogs",
+                "label": "Blogs",
+                "icon": "FaBlog"
+            },
+            {
+                "id": "contact",
+                "label": "Contact",
+                "icon": "FaEnvelope"
+            }
+        ]
+    },
+    "social": {
+        "links": [
+            {
+                "platform": "GitHub",
+                "url": "https://github.com/mimamulhassankhan",
+                "icon": "FaGithub"
+            },
+            {
+                "platform": "LinkedIn",
+                "url": "https://linkedin.com/in/imamul-hassan-khan",
+                "icon": "FaLinkedin"
+            },
+            {
+                "platform": "Email",
+                "url": "mailto:pappuhassan440@gmail.com",
+                "icon": "FaEnvelope"
+            }
+        ]
+    },
+    "profile": {
+        "name": "Imamul Hassan",
+        "title": "Full Stack Developer",
+        "avatar": {
+            "image": "/images/main.png",
+            "fallback": "IH"
+        }
+    },
+    "aboutMe": {
+        "title": "About Me",
+        "subtitle": "Get to know more about my background, skills, and expertise in web development",
+        "personalInfo": {
+            "title": "Personal Info",
+            "location": {
+                "label": "Location",
+                "value": "Uttara, Dhaka - 1230",
+                "icon": "FaHome"
+            },
+            "email": {
+                "label": "Email",
+                "value": "pappuhassan440@gmail.com",
+                "icon": "FaMailBulk"
+            },
+            "phone": {
+                "label": "Phone",
+                "value": "+8801 682992668",
+                "icon": "FaPhoneSquareAlt"
+            },
+            "resume": {
+                "text": "Download Resume",
+                "url": "/Resume_of_Imamul_Hassan_10_7_2025.pdf",
+                "icon": "FaDownload"
+            }
+        },
+        "education": {
+            "title": "Education",
+            "degree": "B.Sc in Computer Science & Engineering",
+            "institution": "Daffodil International University",
+            "period": "2017 - Present",
+            "icon": "FaGraduationCap"
+        },
+        "skills": {
+            "title": "Skills & Expertise",
+            "expertise": [
+                "ReactJS",
+                "NextJS",
+                "Node.js",
+                "Express.js",
+                "TypeScript",
+                ".NET",
+                "TypeORM",
+                "Docker",
+                "Prisma",
+                "MongoDB",
+                "MySQL",
+                "PostgreSQL",
+                "Redis"
+            ],
+            "comfortable": [
+                {
+                    "name": "Azure (CosmosDB, Functions, AD B2C)",
+                    "percentage": 85
+                },
+                {
+                    "name": "AWS (EC2, Amplify, Lambda)",
+                    "percentage": 80
+                },
+                {
+                    "name": "Material UI & Tailwind",
+                    "percentage": 90
+                }
+            ],
+            "familiar": ["ShadCN", "Radix", "Google Maps APIs", "Azure DevOps", "Nginx", "Jenkins"],
+            "extra": ["Microsoft Copilot", "ChatGPT", "GitHub Copilot", "Adobe XD", "Figma"],
+            "operatingSystems": ["Windows 10/11", "Linux (Ubuntu, Mint)"],
+            "tools": ["VS Code", "Visual Studio 2022", "GitHub", "DevTools", "Git"]
+        }
+    },
+    "experience": {
+        "title": "Professional Experience",
+        "subtitle": "My journey through the tech industry, showcasing growth, achievements, and the technologies I've mastered along the way.",
+        "experiences": [
+            {
+                "id": 1,
+                "title": "Software Engineer, Engineering Division",
+                "company": "Relisource Technologies Ltd.",
+                "location": "Dhaka, Bangladesh",
+                "duration": "2024 - Present",
+                "description": "At Relisource, I helped the team to develop enterprise applications by contributing to cloud-native development and microservices architecture. My core responsibilities include developing scalable full-stack solutions and optimizing performance for enterprise-level cold chain monitoring applications.",
+                "technologies": [
+                    "Next.js",
+                    "TypeScript",
+                    "Tailwind CSS",
+                    ".NET",
+                    "Node.js",
+                    "Express.js",
+                    "Azure DevOps",
+                    "Microservices",
+                    "SSR/CSR",
+                    "CI/CD"
+                ],
+                "achievements": [
+                    "Developed scalable full-stack solutions using Next.js, TypeScript, Tailwind CSS, .NET, Node.js, and Express.js for enterprise-level cold chain monitoring applications",
+                    "Optimized performance through effective implementation of SSR/CSR, reducing content loading times by 10%",
+                    "Developed secure microservices and modular frontend systems for maintainability and performance",
+                    "Integrated CI/CD pipelines via Azure DevOps and ensure zero downtime deployments"
+                ],
+                "companyUrl": "https://relisource.com"
+            },
+            {
+                "id": 2,
+                "title": "Software Engineer, Web-3",
+                "company": "BJIT Group",
+                "location": "Dhaka, Bangladesh",
+                "duration": "2021 - 2024",
+                "description": "Contributed to the development of several fullstack solutions using Next.js, NestJS, Express.js, and MongoDB/PostgreSQL. Played a leading role in multiple projects from design to deployment, contributing to performance and UX optimization.",
+                "technologies": [
+                    "Next.js",
+                    "NestJS",
+                    "Express.js",
+                    "MongoDB",
+                    "PostgreSQL",
+                    "Docker",
+                    "AWS",
+                    "WebSockets",
+                    "3rd-party APIs",
+                    "Role-based Access Control"
+                ],
+                "achievements": [
+                    "Contributed to the development of several fullstack solutions using Next.js, NestJS, Express.js, and MongoDB/PostgreSQL",
+                    "Played a leading role in multiple projects from design to deployment, contributing to performance and UX optimization",
+                    "Integrated 3rd-party APIs and implemented role-based access control for enterprise apps",
+                    "Utilized Docker and AWS infrastructure (VPC, EC2) for microservices deployment",
+                    "Built real-time features (Chat, Notification) using WebSockets"
+                ],
+                "companyUrl": "https://bjitgroup.com"
+            }
+        ],
+        "callToAction": {
+            "title": "Ready for New Challenges",
+            "description": "I'm always excited to take on new opportunities and contribute to innovative projects. Let's discuss how I can add value to your team.",
+            "buttonText": "Let's Connect"
+        }
+    },
+    "projects": {
+        "title": "Recent Projects",
+        "subtitle": "Here are some of the projects I've worked on recently. Each project showcases different technologies and problem-solving approaches.",
+        "projects": [
+            {
+                "id": 1,
+                "workImage": "/images/creative-agency.png",
+                "name": "Creative Agency",
+                "shortDescription": "Developing responsive web applications across platforms using React.js, React Bootstrap.Set Private Route to log in with firebase authentication.Create node.js server-side and MongoDB database.Deploy client-side to firebase and server-side to Heroku.",
+                "features": [
+                    "This is a Service Seller Web Application",
+                    "Developed this full-stack website in this way where it can detect the entrance of user or admin.And also can show the result according to the user or admin.",
+                    "Users can buy any services and give feedback.Admin can make both services and admin. And also can see the detailed information of users.",
+                    "All the interaction information is saved in the database and is loaded from the database."
+                ],
+                "tools": {
+                    "programming_language": ["javaScript", "Node.js", "React", "Redux"],
+                    "used_tools": ["VS Code", "Cloudinary", "GitHub"]
+                },
+                "githubLink": "https://github.com/mimamulhassankhan/creative-agency",
+                "liveLink": "https://creative-agency-ltd.web.app/"
+            },
+            {
+                "id": 2,
+                "workImage": "/images/venturetv-japan.png",
+                "name": "Venture TV Japan",
+                "shortDescription": "Built a video-based media platform that showcases startup pitch videos in Japan, helping investors and partners connect with over 700 emerging ventures directly through the platform.",
+                "features": [
+                    "Startup discovery through curated video pitches across sectors.",
+                    "Investor and startup profiles enabling direct outreach.",
+                    "Supports a streamlined, remote-friendly investment exploration experience.",
+                    "Dynamic content filtering to browse VC, CVC, and angel investor profiles.",
+                    "Mobile-friendly UI with intuitive navigation for investor/startup journeys."
+                ],
+                "tools": {
+                    "programming_language": [
+                        "TypeScript",
+                        "Next.js",
+                        "SCSS",
+                        "PHP",
+                        "MySQL",
+                        "WebSockets",
+                        "AWS ElementalMedia",
+                        "AWS EC2"
+                    ],
+                    "used_tools": ["VS Code", "GitHub", "Adobe XD"]
+                },
+                "githubLink": "",
+                "liveLink": "https://venturetv.jp/"
+            },
+            {
+                "id": 3,
+                "workImage": "/images/doctor-portal.jpg",
+                "name": "Doctor's Portal",
+                "shortDescription": "About The Doctors Care Patient Portal is available to all Doctors Care patients. You can access the Doctors Care Patient Portal from any device with Internet capability to view your personal health information.",
+                "features": [
+                    "Developed this full-stack website in this way where it can detect the entrance of user or admin.And also can show the result according to the user or admin.",
+                    "Users can buy any services and give feedback.Admin can make both services and admin. And also can see the detailed information of users.",
+                    "All the interaction information is saved in the database and is loaded from the database."
+                ],
+                "tools": {
+                    "programming_language": ["javaScript", "Node.js", "React", "Redux"],
+                    "used_tools": ["VS Code", "Cloudinary", "GitHub"]
+                },
+                "githubLink": "https://github.com/mimamulhassankhan/doctors-portal",
+                "liveLink": "https://doctors-portal-web-services.web.app/"
+            },
+            {
+                "id": 4,
+                "workImage": "/images/creative-agency.png",
+                "name": "Enterprise SaaS Platform",
+                "shortDescription": "A comprehensive SaaS platform built with Next.js, TypeScript, and .NET backend, featuring multi-tenancy, real-time collaboration, and advanced analytics for Fortune 500 clients.",
+                "features": [
+                    "Built a scalable multi-tenant SaaS platform using Next.js 13, TypeScript, and .NET Core with Entity Framework",
+                    "Implemented Azure AD B2C for enterprise-grade authentication and authorization with role-based access control",
+                    "Created real-time collaboration features using WebSocket connections and Azure SignalR Service",
+                    "Developed advanced analytics dashboard with Azure CosmosDB for real-time data processing and visualization",
+                    "Integrated with Azure Functions for serverless processing and Azure DevOps for CI/CD pipeline",
+                    "Implemented comprehensive security measures including GDPR compliance and OWASP security standards",
+                    "Built responsive design using Material UI and Tailwind CSS with dark/light theme support",
+                    "Created comprehensive API documentation and testing suite with 95% code coverage"
+                ],
+                "tools": {
+                    "programming_language": ["TypeScript", "Next.js", ".NET Core", "C#", "Entity Framework"],
+                    "used_tools": [
+                        "Azure AD B2C",
+                        "Azure CosmosDB",
+                        "Azure Functions",
+                        "Azure DevOps",
+                        "Docker",
+                        "Redis",
+                        "GitHub Actions"
+                    ]
+                },
+                "githubLink": "https://github.com/example/enterprise-saas",
+                "liveLink": "https://enterprise-saas-demo.azurewebsites.net/"
+            },
+            {
+                "id": 5,
+                "workImage": "/images/doctor-portal.jpg",
+                "name": "Cloud-Native Microservices Platform",
+                "shortDescription": "A scalable microservices platform built with Node.js, Express.js, and NestJS, deployed on AWS with comprehensive monitoring and CI/CD pipeline.",
+                "features": [
+                    "Architected and developed a microservices platform using Node.js, Express.js, and NestJS with TypeScript",
+                    "Implemented containerized deployment using Docker and Kubernetes for scalable infrastructure",
+                    "Built comprehensive API gateway with rate limiting, authentication, and request/response transformation",
+                    "Integrated AWS services including EC2, Lambda, RDS, and CloudWatch for monitoring and logging",
+                    "Created automated CI/CD pipeline using GitHub Actions and AWS CodeDeploy for seamless deployments",
+                    "Implemented comprehensive testing strategy with Jest, Supertest, and integration tests",
+                    "Built real-time notification system using WebSocket connections and Redis for caching",
+                    "Developed comprehensive API documentation using Swagger/OpenAPI with interactive testing interface"
+                ],
+                "tools": {
+                    "programming_language": ["TypeScript", "Node.js", "Express.js", "NestJS", "PostgreSQL"],
+                    "used_tools": [
+                        "Docker",
+                        "Kubernetes",
+                        "AWS EC2",
+                        "AWS Lambda",
+                        "AWS RDS",
+                        "Redis",
+                        "GitHub Actions",
+                        "Swagger"
+                    ]
+                },
+                "githubLink": "https://github.com/example/microservices-platform",
+                "liveLink": "https://microservices-demo.aws.com/"
+            },
+            {
+                "id": 6,
+                "workImage": "/images/creative-agency.png",
+                "name": "AI-Enhanced Development Platform",
+                "shortDescription": "An intelligent development platform that integrates AI tools like GitHub Copilot and Microsoft Copilot to enhance developer productivity and code quality.",
+                "features": [
+                    "Built an AI-enhanced development platform integrating GitHub Copilot and Microsoft Copilot APIs",
+                    "Implemented intelligent code suggestions and auto-completion using machine learning models",
+                    "Created a comprehensive code review system with AI-powered analysis and suggestions",
+                    "Developed automated testing generation using AI to improve code coverage and quality",
+                    "Built real-time collaboration features with AI-assisted pair programming capabilities",
+                    "Implemented intelligent project management with AI-powered task estimation and resource allocation",
+                    "Created comprehensive analytics dashboard showing AI usage patterns and productivity metrics",
+                    "Built secure authentication system with Azure AD B2C and role-based access control"
+                ],
+                "tools": {
+                    "programming_language": ["TypeScript", "React", "Next.js", "Node.js", "Python"],
+                    "used_tools": [
+                        "GitHub Copilot API",
+                        "Microsoft Copilot API",
+                        "OpenAI API",
+                        "Azure AD B2C",
+                        "MongoDB",
+                        "Redis",
+                        "Docker",
+                        "GitHub Actions"
+                    ]
+                },
+                "githubLink": "https://github.com/example/ai-dev-platform",
+                "liveLink": "https://ai-dev-platform.azurewebsites.net/"
+            }
+        ]
+    },
+    "achievements": {
+        "title": "Awards & Certifications",
+        "subtitle": "Recognition and certifications that validate my expertise and commitment to continuous learning",
+        "achievements": [
+            {
+                "id": 1,
+                "title": "Performer of the Year",
+                "category": "Company Recognition",
+                "date": "2023",
+                "organization": "BJIT Group",
+                "description": "Awarded 'Performer of the Year' at BJIT Day 2023 for exceptional contributions to project delivery, technical excellence, and team collaboration.",
+                "story": "This recognition came after a year of delivering high-quality solutions for enterprise clients, leading critical projects, and mentoring junior developers. The award ceremony at BJIT Day was a memorable moment that celebrated not just individual achievement but the collaborative spirit of our development team.",
+                "images": [
+                    "/images/achievements/bjit-award.jpg",
+                    "/images/achievements/bjit-day.jpg",
+                    "/images/achievements/team-celebration.jpg"
+                ],
+                "technologies": ["Next.js", "TypeScript", "Node.js", "MongoDB", "Team Leadership"],
+                "impact": "Recognized for outstanding performance and contribution to company success",
+                "icon": "FaTrophy"
+            },
+            {
+                "id": 2,
+                "title": "2nd Runner Up - Programming Contest",
+                "category": "Competition Achievement",
+                "date": "2023",
+                "organization": "Daffodil International University",
+                "description": "Secured 2nd Runner Up position in the DIU Take Off Programming Contest, demonstrating strong problem-solving skills and algorithmic thinking.",
+                "story": "The DIU Take Off Programming Contest was a challenging competition that tested participants' ability to solve complex algorithmic problems efficiently. Competing against talented programmers from various universities, I managed to solve multiple problems and secure the 2nd Runner Up position, showcasing my analytical and coding skills.",
+                "images": [
+                    "/images/achievements/programming-contest.jpg",
+                    "/images/achievements/diu-event.jpg",
+                    "/images/achievements/contest-participation.jpg"
+                ],
+                "technologies": ["Algorithms", "Data Structures", "Problem Solving", "Competitive Programming", "C++"],
+                "impact": "Demonstrated strong analytical and programming skills in competitive environment",
+                "icon": "FaCode"
+            },
+            {
+                "id": 3,
+                "title": "Modern Leadership Certificate",
+                "category": "Leadership Development",
+                "date": "2023",
+                "organization": "BJIT Academy",
+                "description": "Completed Modern Leadership training program at BJIT Academy, enhancing leadership skills and team management capabilities.",
+                "story": "The Modern Leadership program at BJIT Academy was an intensive training that covered contemporary leadership principles, team dynamics, and project management methodologies. This certification has been instrumental in my role as a team lead, helping me effectively manage projects and mentor junior developers.",
+                "images": [
+                    "/images/achievements/leadership-cert.jpg",
+                    "/images/achievements/bjit-academy.jpg",
+                    "/images/achievements/leadership-training.jpg"
+                ],
+                "technologies": [
+                    "Leadership",
+                    "Team Management",
+                    "Project Management",
+                    "Communication",
+                    "Strategic Thinking"
+                ],
+                "impact": "Enhanced leadership capabilities for managing development teams and projects",
+                "icon": "FaUsers"
+            },
+            {
+                "id": 4,
+                "title": "AZ-204: Developing Solutions for Microsoft Azure",
+                "category": "Cloud Certification",
+                "date": "2023",
+                "organization": "Microsoft (via Udemy)",
+                "description": "Successfully completed the AZ-204 Developing Solutions for Microsoft Azure course, gaining comprehensive knowledge of Azure development services and cloud architecture.",
+                "story": "The AZ-204 course was a comprehensive learning journey covering Azure Functions, Azure Storage, Azure Cosmos DB, and other Azure services. This certification has been crucial in my work with cloud-native applications and has enabled me to design and implement scalable solutions using Microsoft Azure services.",
+                "images": [
+                    "/images/achievements/azure-cert.jpg",
+                    "/images/achievements/udemy-course.jpg",
+                    "/images/achievements/cloud-development.jpg"
+                ],
+                "technologies": [
+                    "Azure Functions",
+                    "Azure Storage",
+                    "Azure Cosmos DB",
+                    "Azure DevOps",
+                    "Cloud Architecture"
+                ],
+                "impact": "Enabled development of scalable cloud-native applications using Azure services",
+                "icon": "FaCloud"
+            }
+        ]
+    },
+    "blogs": {
+        "title": "My Blog",
+        "subtitle": "Sharing insights, tutorials, and thoughts on web development and technology",
+        "posts": [
+            {
+                "id": 1,
+                "slug": "building-scalable-microservices-nextjs-dotnet",
+                "title": "Building Scalable Microservices with Next.js and .NET: A Complete Guide",
+                "excerpt": "Learn how to create enterprise-grade microservices architecture using Next.js for the frontend and .NET Core for backend services. This comprehensive guide covers everything from design patterns to deployment strategies.",
+                "category": "Architecture",
+                "readTime": "12 min read",
+                "publishDate": "2024-01-15",
+                "tags": ["Next.js", ".NET", "Microservices", "Architecture", "Enterprise"],
+                "image": "/images/blog/microservices.jpg",
+                "featured": true
+            },
+            {
+                "id": 2,
+                "slug": "typescript-best-practices-react-performance-2024",
+                "title": "TypeScript Best Practices for React Performance: Advanced Techniques",
+                "excerpt": "Discover advanced TypeScript techniques to improve your React application performance. From type optimization to bundle splitting, learn practical strategies for faster, more maintainable code.",
+                "category": "Frontend",
+                "readTime": "8 min read",
+                "publishDate": "2024-01-10",
+                "tags": ["React", "TypeScript", "Performance", "Frontend", "Optimization"],
+                "image": "/images/blog/react-performance.jpg",
+                "featured": false
+            },
+            {
+                "id": 3,
+                "slug": "real-time-applications-websockets-nestjs",
+                "title": "Building Real-time Applications with WebSockets and NestJS",
+                "excerpt": "A deep dive into building real-time applications using WebSockets with NestJS. Learn how to implement chat systems, live notifications, and collaborative features for modern web applications.",
+                "category": "Backend",
+                "readTime": "15 min read",
+                "publishDate": "2024-01-05",
+                "tags": ["WebSockets", "NestJS", "Real-time", "Backend", "Node.js"],
+                "image": "/images/blog/websockets.jpg",
+                "featured": false
+            },
+            {
+                "id": 4,
+                "slug": "cicd-pipeline-optimization-azure-devops",
+                "title": "CI/CD Pipeline Optimization: From Zero to Hero with Azure DevOps",
+                "excerpt": "Master the art of continuous integration and deployment with Azure DevOps. Learn how to create efficient pipelines, implement automated testing, and achieve zero-downtime deployments.",
+                "category": "DevOps",
+                "readTime": "10 min read",
+                "publishDate": "2023-12-28",
+                "tags": ["Azure DevOps", "CI/CD", "DevOps", "Automation", "Deployment"],
+                "image": "/images/blog/cicd.jpg",
+                "featured": false
+            },
+            {
+                "id": 5,
+                "slug": "modern-css-techniques-2024",
+                "title": "Modern CSS Techniques: Grid, Flexbox, and Advanced Layouts",
+                "excerpt": "Explore cutting-edge CSS techniques including CSS Grid, Flexbox, and modern layout patterns. Learn how to create responsive, accessible, and performant web layouts.",
+                "category": "Frontend",
+                "readTime": "9 min read",
+                "publishDate": "2023-12-20",
+                "tags": ["CSS", "Grid", "Flexbox", "Layout", "Responsive"],
+                "image": "/images/blog/css-techniques.jpg",
+                "featured": false
+            },
+            {
+                "id": 6,
+                "slug": "database-design-postgresql-mongodb",
+                "title": "Database Design Patterns: PostgreSQL vs MongoDB for Modern Applications",
+                "excerpt": "Compare and contrast PostgreSQL and MongoDB for different use cases. Learn when to use relational vs document databases and how to design optimal schemas for each.",
+                "category": "Database",
+                "readTime": "11 min read",
+                "publishDate": "2023-12-15",
+                "tags": ["PostgreSQL", "MongoDB", "Database", "Design Patterns", "Schema"],
+                "image": "/images/blog/database-design.jpg",
+                "featured": true
+            },
+            {
+                "id": 7,
+                "slug": "security-best-practices-web-development",
+                "title": "Web Security Best Practices: Protecting Your Applications in 2024",
+                "excerpt": "Essential security practices for modern web development. Learn about OWASP Top 10, authentication strategies, data encryption, and protecting against common vulnerabilities.",
+                "category": "Security",
+                "readTime": "13 min read",
+                "publishDate": "2023-12-10",
+                "tags": ["Security", "OWASP", "Authentication", "Encryption", "Best Practices"],
+                "image": "/images/blog/security.jpg",
+                "featured": false
+            },
+            {
+                "id": 8,
+                "slug": "docker-containerization-best-practices",
+                "title": "Docker Containerization: Best Practices for Production Deployments",
+                "excerpt": "Learn Docker best practices for containerizing applications, optimizing images, and managing containers in production environments. Includes security considerations and performance tips.",
+                "category": "DevOps",
+                "readTime": "14 min read",
+                "publishDate": "2023-12-05",
+                "tags": ["Docker", "Containerization", "DevOps", "Production", "Best Practices"],
+                "image": "/images/blog/docker.jpg",
+                "featured": false
+            },
+            {
+                "id": 9,
+                "slug": "api-design-rest-graphql-comparison",
+                "title": "API Design Patterns: REST vs GraphQL for Modern Applications",
+                "excerpt": "Compare REST and GraphQL API design patterns. Learn when to use each approach, how to implement them effectively, and best practices for API development.",
+                "category": "Backend",
+                "readTime": "10 min read",
+                "publishDate": "2023-11-30",
+                "tags": ["API", "REST", "GraphQL", "Backend", "Design Patterns"],
+                "image": "/images/blog/api-design.jpg",
+                "featured": false
+            },
+            {
+                "id": 10,
+                "slug": "testing-strategies-react-applications",
+                "title": "Comprehensive Testing Strategies for React Applications",
+                "excerpt": "Master testing in React with Jest, React Testing Library, and Cypress. Learn unit testing, integration testing, and end-to-end testing strategies for robust applications.",
+                "category": "Testing",
+                "readTime": "12 min read",
+                "publishDate": "2023-11-25",
+                "tags": ["Testing", "React", "Jest", "Cypress", "Quality Assurance"],
+                "image": "/images/blog/testing.jpg",
+                "featured": false
+            },
+            {
+                "id": 11,
+                "slug": "cloud-native-development-azure-aws",
+                "title": "Cloud-Native Development: Azure vs AWS for Modern Applications",
+                "excerpt": "Compare Azure and AWS services for cloud-native development. Learn about serverless computing, managed services, and choosing the right cloud platform for your projects.",
+                "category": "Cloud",
+                "readTime": "16 min read",
+                "publishDate": "2023-11-20",
+                "tags": ["Azure", "AWS", "Cloud", "Serverless", "Microservices"],
+                "image": "/images/blog/cloud-native.jpg",
+                "featured": true
+            },
+            {
+                "id": 12,
+                "slug": "state-management-react-2024",
+                "title": "State Management in React 2024: Redux Toolkit vs Zustand vs Context",
+                "excerpt": "Compare modern state management solutions for React applications. Learn when to use Redux Toolkit, Zustand, or React Context, and how to implement them effectively.",
+                "category": "Frontend",
+                "readTime": "11 min read",
+                "publishDate": "2023-11-15",
+                "tags": ["React", "State Management", "Redux", "Zustand", "Context API"],
+                "image": "/images/blog/state-management.jpg",
+                "featured": false
+            }
+        ]
+    },
+    "contact": {
+        "title": "Let's Work Together",
+        "subtitle": "Ready to bring your ideas to life? I'm here to help you create something amazing.",
+        "formTitle": "Send Me a Message",
+        "formSubtitle": "Tell me about your project and I'll get back to you within 24 hours",
+        "contactInfo": [
+            {
+                "id": 1,
+                "type": "email",
+                "label": "Email",
+                "value": "pappuhassan440@gmail.com",
+                "icon": "FaEnvelope"
+            },
+            {
+                "id": 2,
+                "type": "location",
+                "label": "Location",
+                "value": "Uttara, Dhaka - 1230",
+                "icon": "FaMapMarkerAlt"
+            },
+            {
+                "id": 3,
+                "type": "phone",
+                "label": "Phone",
+                "value": "+8801 682992668",
+                "icon": "FaPhone"
+            }
+        ],
+        "socialLinks": [
+            {
+                "id": 1,
+                "platform": "LinkedIn",
+                "url": "https://linkedin.com/in/yourusername",
+                "icon": "FaLinkedin"
+            },
+            {
+                "id": 2,
+                "platform": "GitHub",
+                "url": "https://github.com/yourusername",
+                "icon": "FaGithub"
+            },
+            {
+                "id": 3,
+                "platform": "Email",
+                "url": "mailto:pappuhassan440@gmail.com",
+                "icon": "FaEnvelope"
+            }
+        ],
+        "formConfig": {
+            "action": "https://formspree.io/f/xqkgbbjd",
+            "method": "POST"
+        },
+        "footer": {
+            "text": "Design & Developed by",
+            "author": "Imamul Hassan Khan"
+        }
+    }
+}

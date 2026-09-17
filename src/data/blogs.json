@@ -1,0 +1,259 @@
+{
+  "blogs": [
+    {
+      "id": "1",
+      "slug": "building-scalable-react-applications",
+      "title": "Building Scalable React Applications: Best Practices and Architecture Patterns",
+      "excerpt": "Learn how to structure large React applications for maintainability and scalability. This comprehensive guide covers state management, component architecture, and performance optimization techniques.",
+      "content": "# Building Scalable React Applications\n\n## Introduction\n\nBuilding scalable React applications requires careful consideration of architecture, state management, and performance optimization. In this article, we'll explore best practices that can help you create maintainable and scalable React applications.\n\n## State Management Strategies\n\n### 1. Local State vs Global State\n\nWhen building React applications, it's crucial to understand when to use local state versus global state:\n\n```javascript\n// Local state - component-specific\nconst [isOpen, setIsOpen] = useState(false);\n\n// Global state - shared across components\nconst { user, setUser } = useContext(UserContext);\n```\n\n### 2. Context API vs Redux\n\nFor smaller applications, React's Context API might be sufficient:\n\n```javascript\nconst ThemeContext = createContext();\n\nexport const ThemeProvider = ({ children }) => {\n  const [theme, setTheme] = useState('light');\n  \n  return (\n    <ThemeContext.Provider value={{ theme, setTheme }}>\n      {children}\n    </ThemeContext.Provider>\n  );\n};\n```\n\nFor larger applications, consider Redux Toolkit:\n\n```javascript\nimport { createSlice } from '@reduxjs/toolkit';\n\nconst userSlice = createSlice({\n  name: 'user',\n  initialState: { user: null, loading: false },\n  reducers: {\n    setUser: (state, action) => {\n      state.user = action.payload;\n    },\n    setLoading: (state, action) => {\n      state.loading = action.payload;\n    }\n  }\n});\n```\n\n## Component Architecture\n\n### 1. Component Composition\n\nUse composition over inheritance:\n\n```javascript\n// Good: Composition\nconst Button = ({ children, variant = 'primary', ...props }) => (\n  <button className={`btn btn-${variant}`} {...props}>\n    {children}\n  </button>\n);\n\n// Usage\n<Button variant=\"secondary\">Click me</Button>\n```\n\n### 2. Custom Hooks\n\nExtract reusable logic into custom hooks:\n\n```javascript\nconst useLocalStorage = (key, initialValue) => {\n  const [storedValue, setStoredValue] = useState(() => {\n    try {\n      const item = window.localStorage.getItem(key);\n      return item ? JSON.parse(item) : initialValue;\n    } catch (error) {\n      console.error(error);\n      return initialValue;\n    }\n  });\n\n  const setValue = (value) => {\n    try {\n      setStoredValue(value);\n      window.localStorage.setItem(key, JSON.stringify(value));\n    } catch (error) {\n      console.error(error);\n    }\n  };\n\n  return [storedValue, setValue];\n};\n```\n\n## Performance Optimization\n\n### 1. React.memo and useMemo\n\nUse React.memo for expensive components:\n\n```javascript\nconst ExpensiveComponent = React.memo(({ data }) => {\n  return <div>{/* Expensive rendering logic */}</div>;\n});\n```\n\nUse useMemo for expensive calculations:\n\n```javascript\nconst expensiveValue = useMemo(() => {\n  return computeExpensiveValue(data);\n}, [data]);\n```\n\n### 2. Code Splitting\n\nImplement lazy loading for routes:\n\n```javascript\nimport { lazy, Suspense } from 'react';\n\nconst Dashboard = lazy(() => import('./Dashboard'));\n\nfunction App() {\n  return (\n    <Suspense fallback={<div>Loading...</div>}>\n      <Dashboard />\n    </Suspense>\n  );\n}\n```\n\n## Testing Strategy\n\n### 1. Unit Testing\n\nTest individual components and functions:\n\n```javascript\nimport { render, screen } from '@testing-library/react';\nimport Button from './Button';\n\ntest('renders button with correct text', () => {\n  render(<Button>Click me</Button>);\n  expect(screen.getByText('Click me')).toBeInTheDocument();\n});\n```\n\n### 2. Integration Testing\n\nTest component interactions:\n\n```javascript\ntest('form submission works correctly', async () => {\n  render(<ContactForm />);\n  \n  fireEvent.change(screen.getByLabelText('Email'), {\n    target: { value: 'test@example.com' }\n  });\n  \n  fireEvent.click(screen.getByText('Submit'));\n  \n  await waitFor(() => {\n    expect(screen.getByText('Success!')).toBeInTheDocument();\n  });\n});\n```\n\n## Conclusion\n\nBuilding scalable React applications requires a combination of good architecture, proper state management, and performance optimization. By following these best practices, you can create applications that are maintainable, performant, and easy to scale.\n\nRemember to:\n- Choose the right state management solution for your use case\n- Use composition and custom hooks for reusability\n- Optimize performance with React.memo and useMemo\n- Implement proper testing strategies\n- Use code splitting for better performance\n\n## References\n\n1. [React Official Documentation](https://reactjs.org/docs/getting-started.html)\n2. [Redux Toolkit Documentation](https://redux-toolkit.js.org/)\n3. [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)\n\n> **Pro Tip**: Always consider the long-term maintainability of your code. What might seem like over-engineering today could save you hours of refactoring tomorrow.\n\n---\n\n*This article was originally published on [Medium](https://medium.com/@imamulhassan) and has been updated with the latest React best practices.*",
+      "author": "Imamul Hassan",
+      "authorAvatar": "/images/profile-photo.jpg",
+      "publishDate": "2024-01-15",
+      "readTime": "8 min read",
+      "category": "React",
+      "tags": [
+        "React",
+        "JavaScript",
+        "Frontend",
+        "Architecture",
+        "Performance"
+      ],
+      "featuredImage": "/images/blog/placeholder.jpg",
+      "seo": {
+        "metaTitle": "Building Scalable React Applications - Best Practices Guide",
+        "metaDescription": "Learn how to build scalable React applications with best practices for state management, component architecture, and performance optimization.",
+        "metaKeywords": "React, JavaScript, frontend development, state management, performance optimization",
+        "ogTitle": "Building Scalable React Applications: Best Practices and Architecture Patterns",
+        "ogDescription": "Comprehensive guide to building scalable React applications with state management, component architecture, and performance optimization techniques.",
+        "ogImage": "/images/blog/placeholder.jpg",
+        "twitterCard": "summary_large_image",
+        "canonicalUrl": "https://imamulhassan.com/blog/building-scalable-react-applications"
+      },
+      "settings": {
+        "showToc": true,
+        "enableComments": true,
+        "enableSocialSharing": true,
+        "enableReadingProgress": true,
+        "enableRelatedPosts": true
+      },
+      "analytics": {
+        "googleAnalytics": {
+          "enabled": true,
+          "trackingId": "GA_MEASUREMENT_ID_PLACEHOLDER"
+        },
+        "facebookPixel": {
+          "enabled": true,
+          "pixelId": "FB_PIXEL_ID_PLACEHOLDER"
+        },
+        "hotjar": {
+          "enabled": false,
+          "siteId": "HOTJAR_SITE_ID_PLACEHOLDER"
+        }
+      },
+      "relatedPosts": ["2", "3"],
+      "stats": {
+        "views": 1247,
+        "likes": 89,
+        "shares": 23,
+        "comments": 12
+      }
+    },
+    {
+      "id": "2",
+      "slug": "typescript-best-practices-2024",
+      "title": "TypeScript Best Practices for 2024: Writing Clean and Maintainable Code",
+      "excerpt": "Discover the latest TypeScript best practices for 2024. Learn how to write cleaner, more maintainable code with advanced type features and modern patterns.",
+      "content": "# TypeScript Best Practices for 2024\n\n## Introduction\n\nTypeScript has evolved significantly over the years, and with the latest features in TypeScript 5.x, there are new best practices that can help you write cleaner, more maintainable code.\n\n## Advanced Type Features\n\n### 1. Template Literal Types\n\nUse template literal types for more precise string manipulation:\n\n```typescript\ntype HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';\ntype ApiEndpoint = `/api/${string}`;\ntype FullUrl = `https://api.example.com${ApiEndpoint}`;\n\n// Usage\nconst url: FullUrl = 'https://api.example.com/api/users';\n```\n\n### 2. Conditional Types\n\nLeverage conditional types for dynamic type inference:\n\n```typescript\ntype NonNullable<T> = T extends null | undefined ? never : T;\ntype DeepPartial<T> = {\n  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];\n};\n\n// Usage\ninterface User {\n  id: number;\n  name: string;\n  profile: {\n    avatar: string;\n    bio: string;\n  };\n}\n\ntype PartialUser = DeepPartial<User>;\n```\n\n## Modern Patterns\n\n### 1. Branded Types\n\nCreate type-safe identifiers:\n\n```typescript\ntype UserId = string & { readonly brand: unique symbol };\ntype Email = string & { readonly brand: unique symbol };\n\nconst createUserId = (id: string): UserId => id as UserId;\nconst createEmail = (email: string): Email => email as Email;\n\n// Usage\nconst userId = createUserId('123');\nconst email = createEmail('user@example.com');\n\n// This will cause a type error\n// const invalid: UserId = '123';\n```\n\n### 2. Discriminated Unions\n\nUse discriminated unions for better type safety:\n\n```typescript\ntype LoadingState = {\n  status: 'loading';\n};\n\ntype SuccessState = {\n  status: 'success';\n  data: User[];\n};\n\ntype ErrorState = {\n  status: 'error';\n  error: string;\n};\n\ntype ApiState = LoadingState | SuccessState | ErrorState;\n\n// Usage\nconst handleApiState = (state: ApiState) => {\n  switch (state.status) {\n    case 'loading':\n      return <Spinner />;\n    case 'success':\n      return <UserList users={state.data} />;\n    case 'error':\n      return <ErrorMessage message={state.error} />;\n  }\n};\n```\n\n## Error Handling\n\n### 1. Result Pattern\n\nImplement a Result type for better error handling:\n\n```typescript\ntype Result<T, E = Error> = {\n  success: true;\n  data: T;\n} | {\n  success: false;\n  error: E;\n};\n\nconst fetchUser = async (id: string): Promise<Result<User, string>> => {\n  try {\n    const response = await fetch(`/api/users/${id}`);\n    if (!response.ok) {\n      return { success: false, error: 'User not found' };\n    }\n    const user = await response.json();\n    return { success: true, data: user };\n  } catch (error) {\n    return { success: false, error: 'Network error' };\n  }\n};\n\n// Usage\nconst result = await fetchUser('123');\nif (result.success) {\n  console.log(result.data.name);\n} else {\n  console.error(result.error);\n}\n```\n\n## Performance Optimization\n\n### 1. const assertions\n\nUse const assertions for immutable data:\n\n```typescript\nconst colors = ['red', 'green', 'blue'] as const;\ntype Color = typeof colors[number];\n\n// This is more precise than string[]\nconst color: Color = 'red'; // OK\nconst invalidColor: Color = 'yellow'; // Error\n```\n\n### 2. satisfies operator\n\nUse the satisfies operator for type checking without widening:\n\n```typescript\nconst config = {\n  apiUrl: 'https://api.example.com',\n  timeout: 5000,\n  retries: 3,\n} satisfies Config;\n\n// Type is preserved, not widened to Config\n```\n\n## Testing with TypeScript\n\n### 1. Type-Safe Testing\n\nCreate type-safe test utilities:\n\n```typescript\ntype TestUser = {\n  id: string;\n  name: string;\n  email: string;\n};\n\nconst createTestUser = (overrides: Partial<TestUser> = {}): TestUser => ({\n  id: 'test-id',\n  name: 'Test User',\n  email: 'test@example.com',\n  ...overrides,\n});\n\n// Usage in tests\ntest('should create user', () => {\n  const user = createTestUser({ name: 'John Doe' });\n  expect(user.name).toBe('John Doe');\n});\n```\n\n## Conclusion\n\nTypeScript continues to evolve with powerful new features. By adopting these best practices, you can write more robust, maintainable, and type-safe code.\n\nKey takeaways:\n- Use advanced type features like template literals and conditional types\n- Implement modern patterns like branded types and discriminated unions\n- Adopt the Result pattern for better error handling\n- Leverage const assertions and satisfies operator for performance\n- Write type-safe tests\n\n## References\n\n1. [TypeScript Official Documentation](https://www.typescriptlang.org/docs/)\n2. [TypeScript 5.0 Release Notes](https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/)\n3. [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)\n\n> **Remember**: TypeScript is a tool to help you write better code. Use it to catch errors at compile time, not to make your code more complex.\n\n---\n\n*This article covers the latest TypeScript best practices as of 2024. Stay updated with the official TypeScript blog for new features and improvements.*",
+      "author": "Imamul Hassan",
+      "authorAvatar": "/images/profile-photo.jpg",
+      "publishDate": "2024-01-10",
+      "readTime": "6 min read",
+      "category": "TypeScript",
+      "tags": [
+        "TypeScript",
+        "JavaScript",
+        "Programming",
+        "Best Practices",
+        "Type Safety"
+      ],
+      "featuredImage": "/images/blog/placeholder.jpg",
+      "seo": {
+        "metaTitle": "TypeScript Best Practices 2024 - Clean and Maintainable Code",
+        "metaDescription": "Discover the latest TypeScript best practices for 2024. Learn advanced type features, modern patterns, and techniques for writing cleaner code.",
+        "metaKeywords": "TypeScript, JavaScript, programming, best practices, type safety, 2024",
+        "ogTitle": "TypeScript Best Practices for 2024: Writing Clean and Maintainable Code",
+        "ogDescription": "Learn the latest TypeScript best practices for 2024 including advanced type features, modern patterns, and performance optimization techniques.",
+        "ogImage": "/images/blog/placeholder.jpg",
+        "twitterCard": "summary_large_image",
+        "canonicalUrl": "https://imamulhassan.com/blog/typescript-best-practices-2024"
+      },
+      "settings": {
+        "showToc": false,
+        "enableComments": true,
+        "enableSocialSharing": true,
+        "enableReadingProgress": true,
+        "enableRelatedPosts": true
+      },
+      "analytics": {
+        "googleAnalytics": {
+          "enabled": true,
+          "trackingId": "GA_MEASUREMENT_ID_PLACEHOLDER"
+        },
+        "facebookPixel": {
+          "enabled": true,
+          "pixelId": "FB_PIXEL_ID_PLACEHOLDER"
+        },
+        "hotjar": {
+          "enabled": false,
+          "siteId": "HOTJAR_SITE_ID_PLACEHOLDER"
+        }
+      },
+      "relatedPosts": ["1", "3"],
+      "stats": {
+        "views": 892,
+        "likes": 67,
+        "shares": 18,
+        "comments": 8
+      }
+    },
+    {
+      "id": "3",
+      "slug": "modern-css-techniques-2024",
+      "title": "Modern CSS Techniques for 2024: Grid, Flexbox, and Beyond",
+      "excerpt": "Explore cutting-edge CSS techniques including CSS Grid, Flexbox, custom properties, and modern layout patterns that will transform your web development workflow.",
+      "content": "# Modern CSS Techniques for 2024\n\n## Introduction\n\nCSS has come a long way in recent years. With the introduction of CSS Grid, Flexbox, and other modern features, we now have powerful tools to create complex layouts with minimal code.\n\n## CSS Grid Layout\n\n### 1. Basic Grid Setup\n\nCSS Grid provides a two-dimensional layout system:\n\n```css\n.container {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-gap: 1rem;\n  padding: 1rem;\n}\n\n.item {\n  background: var(--card-bg);\n  border-radius: 8px;\n  padding: 1rem;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n```\n\n### 2. Advanced Grid Patterns\n\nCreate complex layouts with named grid areas:\n\n```css\n.layout {\n  display: grid;\n  grid-template-areas:\n    \"header header header\"\n    \"sidebar main aside\"\n    \"footer footer footer\";\n  grid-template-columns: 200px 1fr 200px;\n  grid-template-rows: auto 1fr auto;\n  min-height: 100vh;\n}\n\n.header { grid-area: header; }\n.sidebar { grid-area: sidebar; }\n.main { grid-area: main; }\n.aside { grid-area: aside; }\n.footer { grid-area: footer; }\n\n@media (max-width: 768px) {\n  .layout {\n    grid-template-areas:\n      \"header\"\n      \"main\"\n      \"sidebar\"\n      \"aside\"\n      \"footer\";\n    grid-template-columns: 1fr;\n  }\n}\n```\n\n## Flexbox Techniques\n\n### 1. Responsive Flexbox\n\nCreate responsive layouts with Flexbox:\n\n```css\n.flex-container {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 1rem;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.flex-item {\n  flex: 1 1 300px;\n  min-width: 0;\n}\n\n@media (max-width: 600px) {\n  .flex-item {\n    flex: 1 1 100%;\n  }\n}\n```\n\n### 2. Centering with Flexbox\n\nPerfect centering made easy:\n\n```css\n.centered {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 100vh;\n}\n\n/* For text centering */\n.text-center {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n}\n```\n\n## CSS Custom Properties\n\n### 1. Dynamic Theming\n\nUse CSS custom properties for dynamic theming:\n\n```css\n:root {\n  --primary-color: #007bff;\n  --secondary-color: #6c757d;\n  --background-color: #ffffff;\n  --text-color: #333333;\n  --border-radius: 8px;\n  --transition-duration: 0.3s;\n}\n\n[data-theme=\"dark\"] {\n  --background-color: #1a1a1a;\n  --text-color: #ffffff;\n  --primary-color: #4dabf7;\n}\n\n.button {\n  background-color: var(--primary-color);\n  color: white;\n  border-radius: var(--border-radius);\n  transition: all var(--transition-duration) ease;\n}\n```\n\n### 2. Responsive Custom Properties\n\nCreate responsive values with custom properties:\n\n```css\n.container {\n  --padding: 1rem;\n  --margin: 0.5rem;\n  padding: var(--padding);\n  margin: var(--margin);\n}\n\n@media (min-width: 768px) {\n  .container {\n    --padding: 2rem;\n    --margin: 1rem;\n  }\n}\n\n@media (min-width: 1024px) {\n  .container {\n    --padding: 3rem;\n    --margin: 1.5rem;\n  }\n}\n```\n\n## Modern Layout Patterns\n\n### 1. Holy Grail Layout\n\nCreate a responsive holy grail layout:\n\n```css\n.holy-grail {\n  display: grid;\n  grid-template: \n    \"header header header\" auto\n    \"nav main aside\" 1fr\n    \"footer footer footer\" auto\n    / 200px 1fr 200px;\n  min-height: 100vh;\n}\n\n.header { grid-area: header; }\n.nav { grid-area: nav; }\n.main { grid-area: main; }\n.aside { grid-area: aside; }\n.footer { grid-area: footer; }\n\n@media (max-width: 768px) {\n  .holy-grail {\n    grid-template: \n      \"header\" auto\n      \"nav\" auto\n      \"main\" 1fr\n      \"aside\" auto\n      \"footer\" auto\n      / 1fr;\n  }\n}\n```\n\n### 2. Masonry-like Layout\n\nCreate a masonry layout with CSS Grid:\n\n```css\n.masonry {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));\n  grid-auto-rows: 0;\n  grid-auto-flow: dense;\n  gap: 1rem;\n}\n\n.masonry-item {\n  break-inside: avoid;\n  margin-bottom: 1rem;\n}\n\n.masonry-item:nth-child(3n) {\n  grid-row: span 2;\n}\n\n.masonry-item:nth-child(4n) {\n  grid-column: span 2;\n}\n```\n\n## Performance Optimization\n\n### 1. CSS Containment\n\nUse CSS containment for better performance:\n\n```css\n.card {\n  contain: layout style paint;\n  background: var(--card-bg);\n  border-radius: var(--border-radius);\n  padding: 1rem;\n}\n\n.list-item {\n  contain: layout;\n  display: flex;\n  align-items: center;\n  padding: 0.5rem;\n}\n```\n\n### 2. Optimized Animations\n\nUse transform and opacity for smooth animations:\n\n```css\n.animated-element {\n  transform: translateY(20px);\n  opacity: 0;\n  transition: transform 0.3s ease, opacity 0.3s ease;\n}\n\n.animated-element.visible {\n  transform: translateY(0);\n  opacity: 1;\n}\n\n/* Use will-change for elements that will animate */\n.will-animate {\n  will-change: transform, opacity;\n}\n```\n\n## Modern CSS Features\n\n### 1. Logical Properties\n\nUse logical properties for better internationalization:\n\n```css\n.container {\n  margin-block: 1rem;\n  margin-inline: auto;\n  padding-block: 2rem;\n  padding-inline: 1rem;\n}\n\n.text {\n  text-align: start;\n  writing-mode: horizontal-tb;\n}\n\n/* For RTL languages */\n[dir=\"rtl\"] .text {\n  text-align: end;\n}\n```\n\n### 2. Container Queries\n\nUse container queries for component-based responsive design:\n\n```css\n.card-container {\n  container-type: inline-size;\n}\n\n.card {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 1rem;\n}\n\n@container (min-width: 400px) {\n  .card {\n    grid-template-columns: 200px 1fr;\n  }\n}\n```\n\n## Conclusion\n\nModern CSS provides powerful tools for creating complex layouts and responsive designs. By mastering CSS Grid, Flexbox, and custom properties, you can create maintainable and performant web applications.\n\nKey takeaways:\n- Use CSS Grid for two-dimensional layouts\n- Leverage Flexbox for one-dimensional layouts\n- Implement CSS custom properties for theming\n- Optimize performance with CSS containment\n- Use logical properties for better internationalization\n- Experiment with container queries for component-based responsive design\n\n## References\n\n1. [CSS Grid Layout Module](https://www.w3.org/TR/css-grid-1/)\n2. [CSS Flexible Box Layout Module](https://www.w3.org/TR/css-flexbox-1/)\n3. [CSS Custom Properties](https://www.w3.org/TR/css-variables-1/)\n4. [CSS Container Queries](https://www.w3.org/TR/css-contain-3/)\n\n> **Pro Tip**: Always test your CSS layouts across different browsers and devices. Use tools like CSS Grid Inspector in browser dev tools to visualize your layouts.\n\n---\n\n*This article covers modern CSS techniques that are widely supported in 2024. Keep an eye on the CSS Working Group for new features and improvements.*",
+      "author": "Imamul Hassan",
+      "authorAvatar": "/images/profile-photo.jpg",
+      "publishDate": "2024-01-05",
+      "readTime": "7 min read",
+      "category": "CSS",
+      "tags": ["CSS", "Frontend", "Web Design", "Layout", "Responsive Design"],
+      "featuredImage": "/images/blog/placeholder.jpg",
+      "seo": {
+        "metaTitle": "Modern CSS Techniques 2024 - Grid, Flexbox, and Beyond",
+        "metaDescription": "Explore cutting-edge CSS techniques including CSS Grid, Flexbox, custom properties, and modern layout patterns for 2024.",
+        "metaKeywords": "CSS, frontend development, CSS Grid, Flexbox, responsive design, 2024",
+        "ogTitle": "Modern CSS Techniques for 2024: Grid, Flexbox, and Beyond",
+        "ogDescription": "Learn modern CSS techniques including Grid, Flexbox, custom properties, and layout patterns that will transform your web development workflow.",
+        "ogImage": "/images/blog/placeholder.jpg",
+        "twitterCard": "summary_large_image",
+        "canonicalUrl": "https://imamulhassan.com/blog/modern-css-techniques-2024"
+      },
+      "settings": {
+        "showToc": true,
+        "enableComments": true,
+        "enableSocialSharing": true,
+        "enableReadingProgress": true,
+        "enableRelatedPosts": true
+      },
+      "analytics": {
+        "googleAnalytics": {
+          "enabled": true,
+          "trackingId": "GA_MEASUREMENT_ID_PLACEHOLDER"
+        },
+        "facebookPixel": {
+          "enabled": true,
+          "pixelId": "FB_PIXEL_ID_PLACEHOLDER"
+        },
+        "hotjar": {
+          "enabled": false,
+          "siteId": "HOTJAR_SITE_ID_PLACEHOLDER"
+        }
+      },
+      "relatedPosts": ["1", "2"],
+      "stats": {
+        "views": 756,
+        "likes": 54,
+        "shares": 15,
+        "comments": 6
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": "react",
+      "name": "React",
+      "description": "React development, best practices, and advanced patterns",
+      "count": 1
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "description": "TypeScript tips, tricks, and best practices",
+      "count": 1
+    },
+    {
+      "id": "css",
+      "name": "CSS",
+      "description": "Modern CSS techniques and layout patterns",
+      "count": 1
+    }
+  ],
+  "tags": [
+    {
+      "id": "react",
+      "name": "React",
+      "count": 1
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "count": 2
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "count": 1
+    },
+    {
+      "id": "frontend",
+      "name": "Frontend",
+      "count": 2
+    },
+    {
+      "id": "css",
+      "name": "CSS",
+      "count": 1
+    },
+    {
+      "id": "programming",
+      "name": "Programming",
+      "count": 1
+    },
+    {
+      "id": "best-practices",
+      "name": "Best Practices",
+      "count": 2
+    },
+    {
+      "id": "architecture",
+      "name": "Architecture",
+      "count": 1
+    },
+    {
+      "id": "performance",
+      "name": "Performance",
+      "count": 1
+    },
+    {
+      "id": "web-design",
+      "name": "Web Design",
+      "count": 1
+    },
+    {
+      "id": "layout",
+      "name": "Layout",
+      "count": 1
+    },
+    {
+      "id": "responsive-design",
+      "name": "Responsive Design",
+      "count": 1
+    },
+    {
+      "id": "type-safety",
+      "name": "Type Safety",
+      "count": 1
+    }
+  ]
+}
